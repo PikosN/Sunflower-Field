@@ -13,9 +13,6 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         shopPanel.SetActive(false);
-        CreateUpgrade("growth_1");
-        CreateUpgrade("money_1");
-        CreateUpgrade("autoharvest");
     }
 
     public void CreateUpgrade(string id)

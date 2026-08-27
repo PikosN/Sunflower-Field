@@ -22,4 +22,8 @@ public static class GameMath
     {
         return Mathf.RoundToInt(baseCost * Mathf.Pow(costGrowthRate, level));
     }
+    public static int GetDayGoal(int baseDayGoal, int day)
+    {
+        return Mathf.RoundToInt(baseDayGoal * Mathf.Pow(2f, day - 1));
+    }
 }

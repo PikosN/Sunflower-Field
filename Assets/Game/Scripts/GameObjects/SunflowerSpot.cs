@@ -55,6 +55,8 @@ public class SunflowerSpot : MonoBehaviour, IInteractable
         SunflowerVisual.SetActive(true);
         state = State.Growing;
         growTimer = 0f;
+
+        G.plantManager.sunflowerSpots.Add(this);
     }
 
     void Harvest()
@@ -92,5 +94,13 @@ public class SunflowerSpot : MonoBehaviour, IInteractable
         {
             state = State.Ready;
         }
+    }
+
+    public void Reset()
+    {
+        state = State.Empty;
+
+        SunflowerVisual.SetActive(false);
+        SunflowerVisual.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 }

@@ -1269,6 +1269,9 @@ GameObject:
   - component: {fileID: 1101960983}
   - component: {fileID: 1101960984}
   - component: {fileID: 1101960985}
+  - component: {fileID: 1101960986}
+  - component: {fileID: 1101960988}
+  - component: {fileID: 1101960987}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -1338,6 +1341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
   growthLevel: 0
   moneyLevel: 0
+  hasAutoharvest: 1
 --- !u!114 &1101960985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,7 +1354,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc399151cbe3a8341b86a8d4c5e869b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlantManager
+  sunflowerSpots: []
   currentSunflowers: 0
+--- !u!114 &1101960986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101960980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef3ff1ae11141b47a3d555f451392be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrestigeManager
+  prestigeLevel: 0
+  currentDay: 1
+--- !u!114 &1101960987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101960980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a2d09052ef61b42a4dddc9690784e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DayNightManager
+--- !u!114 &1101960988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101960980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13db8c1bcba6b447af86513429cc889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressManager
+  progress: 0
+  isDayCompleted: 0
 --- !u!1 &1110409050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10$
+  m_text: 15$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1506,7 +1551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.982222
+      value: 22.6
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1663,7 +1708,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.8788657
+      value: 3.45
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1671,7 +1716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.040136
+      value: 21.14
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1728,7 +1773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.8565855
+      value: 22.32
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2089,6 +2134,9 @@ MonoBehaviour:
   shopManager: {fileID: 1101960981}
   upgradeManager: {fileID: 1101960984}
   plantManager: {fileID: 1101960985}
+  prestigeManager: {fileID: 1101960986}
+  progressManager: {fileID: 1101960988}
+  dayNightManager: {fileID: 1101960987}
 --- !u!4 &1666587331
 Transform:
   m_ObjectHideFlags: 0
@@ -2851,7 +2899,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.47
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2859,7 +2907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.68
+      value: 21.34
       objectReference: {fileID: 0}
     - target: {fileID: 1869473963530570688, guid: 86ec758faeadbbb4685b24d7e926c33b, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1,16 +1,24 @@
 using UnityEngine;
 
-public class Bed : MonoBehaviour
+public class Bed : MonoBehaviour, IInteractable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Interact()
     {
-        
+        if (G.progressManager.isDayCompleted == true)
+        {
+            G.prestigeManager.Prestige();
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public string GetInteractText()
     {
+        if (G.progressManager.isDayCompleted == true)
+        {
+            return "Go to sleep";
+        }
+        else
+        {
+            return "You don't want to sleep. You need to work.";
+        }
         
     }
 }

@@ -10,6 +10,7 @@ public class EconomyManager : MonoBehaviour
     public void AddMoney(int amount)
     {
         money += amount;
+        G.progressManager.AddProgress(amount);
         UpdateMoneyUI();
     }
     
@@ -27,5 +28,11 @@ public class EconomyManager : MonoBehaviour
     {
         FPMoneyText.text = money + "$";
         shopMoneyText.text = money + "$";
+    }
+
+    public void Reset()
+    {
+        money = 15;
+        UpdateMoneyUI();
     }
 }

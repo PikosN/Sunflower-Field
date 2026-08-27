@@ -4,6 +4,7 @@ public class UpgradeManager : MonoBehaviour
 {
     public int growthLevel = 0;
     public int moneyLevel = 0;
+    public int hasAutoharvest = 0;
     public void ApplyUpgrade(UpgradeData upgrade)
     {
         switch (upgrade.id)
@@ -29,7 +30,7 @@ public class UpgradeManager : MonoBehaviour
             case "money_1":
                 return moneyLevel;
             case "autoharvest":
-                return 0;
+                return hasAutoharvest;
             default: 
                 return 0;
         }
@@ -47,6 +48,13 @@ public class UpgradeManager : MonoBehaviour
 
     void UpgradeAutoharvest()
     {
+        hasAutoharvest = 1;
+    }
 
+    public void Reset()
+    {
+        growthLevel = 0;
+        moneyLevel = 0;
+        hasAutoharvest= 0;
     }
 }
