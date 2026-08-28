@@ -125,11 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5529b9045421524380d4eff18b68c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SunflowerSpot
-  growTime: 10
-  moneyPerPlant: 10
-  sunflowerCost: 12
-  SunflowerVisual: {fileID: 4700886193200674659}
-  interactText: Press E to plant sunflower for 12$
+  plantVisual: {fileID: 4700886193200674659}
 --- !u!1 &4700886193200674659
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +138,7 @@ GameObject:
   - component: {fileID: 5449164089364385633}
   - component: {fileID: 4869044961117716877}
   m_Layer: 3
-  m_Name: SunflowerMesh
+  m_Name: PlantMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869473963530570688}
   m_Layer: 3
-  m_Name: SunflowerSpot
+  m_Name: PlantSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

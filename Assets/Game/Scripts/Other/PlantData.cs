@@ -1,0 +1,68 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+
+public class PlantData
+{
+    public string id;
+    public string name;
+    public string description;
+    public int baseCost;
+    public int baseReward;
+    public float baseGrowthTime;
+
+    public float costGrowthRate;
+}
+
+public static class AllPlants
+{
+    public static List<PlantData> all = new List<PlantData>
+    {
+        new PlantData()
+        {
+            id = "sunflower",
+            name = "Sunflower",
+            description = "Default plant",
+            baseCost = 10,
+            baseReward = 10,
+            baseGrowthTime = 10f,
+            costGrowthRate = 1.2f,
+        },
+        new PlantData()
+        {
+            id = "",
+            name = "",
+            description = "",
+            baseCost = 0,
+            baseReward = 0,
+            baseGrowthTime = 0,
+            costGrowthRate = 0,
+        },
+        new PlantData()
+        {
+            id = "",
+            name = "",
+            description = "",
+            baseCost = 0,
+            baseReward = 0,
+            baseGrowthTime = 0,
+            costGrowthRate = 0,
+        },
+        //new PlantData()
+        //{
+        //    id = "",  
+        //    name = "",
+        //    description = "",
+        //    baseCost = 0,
+        //    baseReward = 0,
+        //    baseGrowthTime = 0,
+        //    costGrowthRate = 0,
+        //},
+
+    };
+    
+    public static PlantData GetPlantData(string plantId)
+    {
+        return AllPlants.all.Find(plant => plant.id == plantId);
+    }
+
+}

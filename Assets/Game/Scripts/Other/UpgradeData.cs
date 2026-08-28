@@ -6,6 +6,7 @@ public class UpgradeData
     public string name;
     public string description;
     public int baseCost;
+    public int amountOfUpgrades;
 
     public float costGrowthRate;
     public float effectRate;
@@ -18,10 +19,11 @@ public class AllUpgrades
         // Growth upgrade
         new UpgradeData()
         {
-            id = "growth_1",
+            id = "growth",
             name = "Fast growth",
             description = "Growth speed upgrade",
             baseCost = 20,
+            amountOfUpgrades = 100,
             costGrowthRate = 1.7f,
             effectRate = 0.9f,
             
@@ -29,10 +31,11 @@ public class AllUpgrades
         // Money upgrade
         new UpgradeData()
         {
-            id = "money_1",
+            id = "money",
             name = "More money for plant",
             description = "Sunflower value upgrade",
             baseCost = 25,
+            amountOfUpgrades = 100,
             costGrowthRate = 1.8f,
             effectRate = 1.2f
         },
@@ -43,15 +46,18 @@ public class AllUpgrades
             name = "Auto harvesting",
             description = "Don't waste your time!",
             baseCost = 100,
+            amountOfUpgrades = 1,
             costGrowthRate = 1f
         },
         //new UpgradeData()
         //{
-            // id = "",
-            // name = "",
-            // description = "",
-            // baseCost = 0,
-            // costGrowthRate = 1f
+            //id = "",
+            //name = "",
+            //description = "",
+            //baseCost = 0,
+            //amountOfUpgrades = 0,
+            //costGrowthRate = 0f,
+            //effectRate = 0f
         //},
     };
     public static UpgradeData GetUpgrade(string id)

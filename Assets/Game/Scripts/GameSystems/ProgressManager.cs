@@ -15,6 +15,20 @@ public class ProgressManager : MonoBehaviour
 
     public void StartDay()
     {
+        foreach (var upgradeCard in G.shopManager.activeUpgradeCards)
+        {
+            upgradeCard.Delete();
+        }
+        G.shopManager.CreateUpgrade("growth");
+        G.shopManager.CreateUpgrade("money");
+        G.shopManager.CreateUpgrade("autoharvest");
+
+        foreach (var plantCard in G.plantSelectionUI.activePlantCards)
+        {
+            plantCard.Delete();
+        }
+        G.plantSelectionUI.activePlantCards.Add(G.plantSelectionUI.CreatePlantCard("sunflower"));
+
         dayProgress = 0f;
         progress = 0f;
         isDayCompleted = false;

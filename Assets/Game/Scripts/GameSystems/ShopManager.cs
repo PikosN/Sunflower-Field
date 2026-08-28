@@ -1,14 +1,17 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
     public GameObject shopPanel;
-    public EconomyManager economyManager;
-    public UpgradeManager upgradeManager;
     public UpgradeCard upgradeCardPrefab;
     public Transform content;
     public TMP_Text FPMoneyText;
+
+    public List<UpgradeCard> activeUpgradeCards;
+
     private bool isOpen = false;
     void Start()
     {
@@ -20,6 +23,7 @@ public class ShopManager : MonoBehaviour
         UpgradeData upgrade = AllUpgrades.GetUpgrade(id);
         UpgradeCard card = Instantiate(upgradeCardPrefab, content);
         card.Setup(upgrade);
+        activeUpgradeCards.Add(card);
     }
 
     public bool BuyUpgrade(UpgradeData upgrade)
@@ -29,11 +33,11 @@ public class ShopManager : MonoBehaviour
             upgrade.costGrowthRate,
             G.upgradeManager.GetUpgradeLevel(upgrade.id)
             );
-        if (!economyManager.TrySpentMoney(cost))
+        if (!G.economyManager.TrySpentMoney(cost))
         {
             return false;
         }
-        upgradeManager.ApplyUpgrade(upgrade);
+        G.upgradeManager.ApplyUpgrade(upgrade);
         return true;
     }
 

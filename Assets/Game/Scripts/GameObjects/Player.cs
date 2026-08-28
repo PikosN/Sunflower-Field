@@ -52,8 +52,7 @@ public class Player : MonoBehaviour
 
     void Update ()
     {
-        if (G.shopManager.IsOpen()) return;
-
+        if ( G.shopManager.IsOpen() || G.plantSelectionUI.IsOpen() ) return;
 
     // движение камерой
         Vector2 mouseDelta = lookAction.action.ReadValue<Vector2>();

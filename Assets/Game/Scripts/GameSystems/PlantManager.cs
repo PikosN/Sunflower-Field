@@ -3,20 +3,20 @@ using UnityEngine;
 
 public class PlantManager : MonoBehaviour
 {
-    public List<SunflowerSpot> sunflowerSpots;
-    public int currentSunflowers = 0;
+    public List<PlantSpot> plantSpots;
+    public int currentPlants = 0;
 
-    public void BuySunflower()
+    public void BuyPlant()
     {
-        currentSunflowers++;
+        currentPlants++;
     }
     
     public void Reset()
     {
-        foreach (var sunflowerSpot in sunflowerSpots)
+        foreach (var plantSpot in plantSpots)
         {
-            sunflowerSpot.Reset();
+            plantSpot.Reset();
         }
-        currentSunflowers = 0;
+        currentPlants = 0;
     }
 }

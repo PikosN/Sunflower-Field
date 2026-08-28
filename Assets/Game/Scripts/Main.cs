@@ -9,6 +9,7 @@ public class Main : MonoBehaviour
     public PrestigeManager prestigeManager;
     public ProgressManager progressManager;
     public DayNightManager dayNightManager;
+    public PlantSelectionUI plantSelectionUI;
     void Awake()
     {
         G.economyManager = economyManager;
@@ -18,5 +19,13 @@ public class Main : MonoBehaviour
         G.prestigeManager = prestigeManager;
         G.progressManager = progressManager;
         G.dayNightManager = dayNightManager;
+        G.plantSelectionUI = plantSelectionUI;
+
+        StartGame();
+    }
+
+    void StartGame()
+    {
+        G.progressManager.StartDay();
     }
 }

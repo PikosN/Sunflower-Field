@@ -7,4 +7,5 @@ public class G
     public static PrestigeManager prestigeManager;
     public static ProgressManager progressManager;
     public static DayNightManager dayNightManager;
+    public static PlantSelectionUI plantSelectionUI;
 }

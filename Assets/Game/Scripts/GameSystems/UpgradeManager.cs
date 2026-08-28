@@ -9,10 +9,10 @@ public class UpgradeManager : MonoBehaviour
     {
         switch (upgrade.id)
         {
-            case "growth_1":
+            case "growth":
                 UpgradeGrowth();
                 break;
-            case "money_1":
+            case "money":
                 UpgradeMoney();
                 break;
             case "autoharvest":
@@ -25,9 +25,9 @@ public class UpgradeManager : MonoBehaviour
     {
         switch (id)
         {
-            case "growth_1":
+            case "growth":
                 return growthLevel;
-            case "money_1":
+            case "money":
                 return moneyLevel;
             case "autoharvest":
                 return hasAutoharvest;
