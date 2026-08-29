@@ -23,11 +23,7 @@ public class ProgressManager : MonoBehaviour
         G.shopManager.CreateUpgrade("money");
         G.shopManager.CreateUpgrade("autoharvest");
 
-        foreach (var plantCard in G.plantSelectionUI.activePlantCards)
-        {
-            plantCard.Delete();
-        }
-        G.plantSelectionUI.activePlantCards.Add(G.plantSelectionUI.CreatePlantCard("sunflower"));
+        G.plantSelectionUI.Reset();
 
         dayProgress = 0f;
         progress = 0f;

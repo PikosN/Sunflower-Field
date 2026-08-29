@@ -75,8 +75,8 @@ public class PlantSpot : MonoBehaviour, IInteractable
             );
         float progress = Mathf.Clamp01(growTimer / growthTime);
 
-        plantVisual.transform.localScale = new Vector3(0.1f, progress * 2.5f, 0.1f);
-        plantVisual.transform.localPosition = new Vector3(0f, progress * 2.5f / 2, 0f);
+        plantVisual.transform.localScale = Vector3.one * progress * 2.5f;
+        plantVisual.transform.localPosition = new Vector3(0f, 0.35f, 0f);
 
         if (growTimer >= growthTime)
         {

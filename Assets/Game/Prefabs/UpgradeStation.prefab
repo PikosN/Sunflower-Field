@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5727060708797652025}
   - component: {fileID: 6616743898588422554}
   - component: {fileID: 969807790943654121}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpgradeStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb214e2fce41bc04fa9f652e67501bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeStation
+  interactText: Press E to open the shop

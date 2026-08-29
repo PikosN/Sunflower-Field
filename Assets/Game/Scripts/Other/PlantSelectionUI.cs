@@ -14,10 +14,6 @@ public class PlantSelectionUI : MonoBehaviour
 
     private bool isOpen = false;
 
-    void Start()
-    {
-        
-    }
     public void OpenUI(PlantSpot spot)
     {
         currentSpot = spot;
@@ -57,6 +53,12 @@ public class PlantSelectionUI : MonoBehaviour
 
     public void Reset()
     {
-        
+        foreach (var plantCard in activePlantCards)
+        {
+            plantCard.Delete();
+        }
+        activePlantCards.Add(CreatePlantCard("unknown_plant"));
+
+        RefreshPlantsCost();
     }
 }
