@@ -20,10 +20,10 @@ public class AllUpgrades
         new UpgradeData()
         {
             id = "growth",
-            name = "Fast growth",
-            description = "Growth speed upgrade",
+            name = "[00] BETTER LAMPS",
+            description = "Plants grow faster",
             baseCost = 20,
-            amountOfUpgrades = 100,
+            amountOfUpgrades = 10,
             costGrowthRate = 1.7f,
             effectRate = 0.9f,
             
@@ -32,10 +32,10 @@ public class AllUpgrades
         new UpgradeData()
         {
             id = "money",
-            name = "More money for plant",
-            description = "Sunflower value upgrade",
+            name = "[01] FERTILIZERS",
+            description = "The value of plants increases",
             baseCost = 25,
-            amountOfUpgrades = 100,
+            amountOfUpgrades = 10,
             costGrowthRate = 1.8f,
             effectRate = 1.2f
         },
@@ -43,7 +43,7 @@ public class AllUpgrades
         new UpgradeData()
         {
             id = "autoharvest",
-            name = "Auto harvesting",
+            name = "[02] AUTOHARVESTING",
             description = "Don't waste your time!",
             baseCost = 100,
             amountOfUpgrades = 1,

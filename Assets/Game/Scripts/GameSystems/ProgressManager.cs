@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ProgressManager : MonoBehaviour
 {
+    public SleepAnimation sleepAnimation;
+
     float dayProgress;
     public float progress;
     int dayGoal;
@@ -15,13 +17,9 @@ public class ProgressManager : MonoBehaviour
 
     public void StartDay()
     {
-        foreach (var upgradeCard in G.shopManager.activeUpgradeCards)
-        {
-            upgradeCard.Delete();
-        }
-        G.shopManager.CreateUpgrade("growth");
-        G.shopManager.CreateUpgrade("money");
-        G.shopManager.CreateUpgrade("autoharvest");
+        StartCoroutine(sleepAnimation.Wakeup());
+
+        G.shopManager.Reset();
 
         G.plantSelectionUI.Reset();
 

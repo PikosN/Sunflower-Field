@@ -6,6 +6,6 @@ public class G
     public static PlantManager plantManager;
     public static PrestigeManager prestigeManager;
     public static ProgressManager progressManager;
-    public static DayNightManager dayNightManager;
     public static PlantSelectionUI plantSelectionUI;
+    public static Player player;
 }

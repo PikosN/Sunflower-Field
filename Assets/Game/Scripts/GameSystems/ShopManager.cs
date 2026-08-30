@@ -12,7 +12,6 @@ public class ShopManager : MonoBehaviour
 
     public List<UpgradeCard> activeUpgradeCards;
 
-    private bool isOpen = false;
     void Start()
     {
         shopPanel.SetActive(false);
@@ -43,23 +42,33 @@ public class ShopManager : MonoBehaviour
 
     public void OpenShop()
     {
-        isOpen = true;
         shopPanel.SetActive(true);
         FPMoneyText.enabled = false;
 
+        G.player.SetMovementEnabled(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
     public void CloseShop()
     {
-        isOpen = false;
         shopPanel.SetActive(false);
         FPMoneyText.enabled = true;
 
+        G.player.SetMovementEnabled(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
-    public bool IsOpen() { return isOpen; }
+
+    public void Reset()
+    {
+        while (activeUpgradeCards.Count > 0)
+        {
+            activeUpgradeCards[0].Delete();
+        }
+
+        CreateUpgrade("growth");
+        CreateUpgrade("money");
+        CreateUpgrade("autoharvest");
+    }
 }

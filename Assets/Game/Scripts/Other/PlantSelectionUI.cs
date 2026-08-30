@@ -12,15 +12,14 @@ public class PlantSelectionUI : MonoBehaviour
 
     public List<PlantCard> activePlantCards = new List<PlantCard>();
 
-    private bool isOpen = false;
-
     public void OpenUI(PlantSpot spot)
     {
         currentSpot = spot;
 
         PlantSelectionPanel.SetActive(true);
-        isOpen = true;
 
+
+        G.player.SetMovementEnabled(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -28,8 +27,7 @@ public class PlantSelectionUI : MonoBehaviour
     {
         PlantSelectionPanel.SetActive(false);
 
-        isOpen = false;
-
+        G.player.SetMovementEnabled(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -49,14 +47,14 @@ public class PlantSelectionUI : MonoBehaviour
             plantCard.RefreshCost();
         }
     }
-    public bool IsOpen() { return isOpen; }
 
     public void Reset()
     {
-        foreach (var plantCard in activePlantCards)
+        while (activePlantCards.Count > 0)
         {
-            plantCard.Delete();
+            activePlantCards[0].Delete();
         }
+
         activePlantCards.Add(CreatePlantCard("unknown_plant"));
 
         RefreshPlantsCost();

@@ -8,8 +8,8 @@ public class Main : MonoBehaviour
     public PlantManager plantManager;
     public PrestigeManager prestigeManager;
     public ProgressManager progressManager;
-    public DayNightManager dayNightManager;
     public PlantSelectionUI plantSelectionUI;
+    public Player player;
     void Awake()
     {
         G.economyManager = economyManager;
@@ -18,8 +18,8 @@ public class Main : MonoBehaviour
         G.plantManager = plantManager;
         G.prestigeManager = prestigeManager;
         G.progressManager = progressManager;
-        G.dayNightManager = dayNightManager;
         G.plantSelectionUI = plantSelectionUI;
+        G.player = player;
 
         StartGame();
     }

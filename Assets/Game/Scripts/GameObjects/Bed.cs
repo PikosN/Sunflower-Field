@@ -1,19 +1,28 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bed : MonoBehaviour, IInteractable
 {
+    public SleepAnimation sleepAnimation;
     public void Interact()
     {
-        if (G.progressManager.isDayCompleted == true)
+        if (G.progressManager.isDayCompleted)
         {
-            G.prestigeManager.Prestige();
+            StartCoroutine(EndDay());
         }
     }
+
+    private IEnumerator EndDay()
+    {
+        yield return StartCoroutine(sleepAnimation.GoToSleep());
+        G.prestigeManager.Prestige();
+    }
+
     public string GetInteractText()
     {
-        if (G.progressManager.isDayCompleted == true)
+        if (G.progressManager.isDayCompleted)
         {
-            return "Go to sleep";
+            return "Press E to go to sleep";
         }
         else
         {

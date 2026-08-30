@@ -51,6 +51,7 @@ public class PlantCard : MonoBehaviour
 
     public void Delete()
     {
+        G.plantSelectionUI.activePlantCards.Remove(this);
         Destroy(gameObject);
     }
 }

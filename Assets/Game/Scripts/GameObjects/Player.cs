@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private IInteractable currentInteractable;
 
+    private bool canMove = false;
+
     private void OnEnable()
     {
         moveAction.action.Enable();
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
 
     void Update ()
     {
-        if ( G.shopManager.IsOpen() || G.plantSelectionUI.IsOpen() ) return;
+        if ( !canMove ) return;
 
     // движение камерой
         Vector2 mouseDelta = lookAction.action.ReadValue<Vector2>();
@@ -116,5 +118,18 @@ public class Player : MonoBehaviour
             return hitInfo.collider.GetComponentInParent<IInteractable>();
         }
         return null;
+    }
+
+    public void ResetCamera(float rotation)
+    {
+        xRotation = 0f;
+        yRotation = rotation;
+        transform.rotation = Quaternion.Euler(0f, rotation, 0f);
+
+    }
+
+    public void SetMovementEnabled(bool enabled)
+    {
+        canMove = enabled;
     }
 }

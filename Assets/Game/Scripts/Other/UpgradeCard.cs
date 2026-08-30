@@ -14,10 +14,9 @@ public class UpgradeCard : MonoBehaviour
     {
         upgrade = cardData;
 
-        nameText.text = cardData.name;
         descriptionText.text = cardData.description;
         
-        RefreshCost();
+        Refresh();
 
         buyButton.onClick.AddListener(Buy);
     }
@@ -28,7 +27,7 @@ public class UpgradeCard : MonoBehaviour
         {
             if (G.upgradeManager.GetUpgradeLevel(upgrade.id) < upgrade.amountOfUpgrades)
             {
-                RefreshCost();
+                Refresh();
             }
             else
             {
@@ -36,18 +35,22 @@ public class UpgradeCard : MonoBehaviour
             }
         }
     }
-    public void RefreshCost()
+    public void Refresh()
     {
         int cost = GameMath.GetUpgradeCost(
             upgrade.baseCost,
             upgrade.costGrowthRate,
             G.upgradeManager.GetUpgradeLevel(upgrade.id)
             );
+        int level = G.upgradeManager.GetUpgradeLevel(upgrade.id);
+
+        nameText.text = upgrade.name + " " + level;
         costText.text = cost + "$";
     }
 
     public void Delete()
     {
+        G.shopManager.activeUpgradeCards.Remove(this);
         Destroy(gameObject);
     }
 
