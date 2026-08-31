@@ -45,16 +45,6 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
-                },
-                {
-                    "name": "Cancel",
-                    "type": "Button",
-                    "id": "83c3c3c6-148f-4889-b82d-ab75101cd00d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false,
-                    "priority": 0
                 }
             ],
             "bindings": [
@@ -145,10 +135,28 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "67690200-f19f-4c11-9d4a-c2d33939e5f1",
+            "actions": [
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "8b744722-4014-4aa5-ad7b-0a6519e7519a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "812df443-330d-4834-b368-746d56710d4b",
+                    "id": "93933dbe-cd87-4d35-a2f8-1aea541a7a68",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",

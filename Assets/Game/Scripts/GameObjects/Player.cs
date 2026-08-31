@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
 
     public float interactRange = 1.5f;
-    public Crosshair crosshair;
     public LayerMask interactionLayer;
     
 
@@ -96,17 +95,17 @@ public class Player : MonoBehaviour
             currentInteractable = interactObject;
             if (interactObject != null)
             {
-                crosshair.SetInteractableUI(true, interactObject.GetInteractText());
+                G.UIManager.SetInteractableUI(true, interactObject.GetInteractText());
             }
             else
             {
-                crosshair.SetInteractableUI(false, string.Empty);
+                G.UIManager.SetInteractableUI(false, string.Empty);
             }
         }
         if (currentInteractable != null && interactAction.action.WasPressedThisFrame())
         {
             interactObject.Interact();
-            crosshair.SetInteractableUI(true, interactObject.GetInteractText());
+            G.UIManager.SetInteractableUI(true, interactObject.GetInteractText());
         }
 
     }

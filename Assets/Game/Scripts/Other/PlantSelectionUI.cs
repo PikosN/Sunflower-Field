@@ -31,13 +31,13 @@ public class PlantSelectionUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    public PlantCard CreatePlantCard(string id)
+    public void CreatePlantCard(string id)
     {
         PlantData plant = AllPlants.GetPlantData(id);
         PlantCard plantCard = Instantiate(plantCardPrefab, content);
         plantCard.Setup(plant);
 
-        return plantCard;
+        activePlantCards.Add(plantCard);
     }
 
     public void RefreshPlantsCost()
@@ -55,7 +55,7 @@ public class PlantSelectionUI : MonoBehaviour
             activePlantCards[0].Delete();
         }
 
-        activePlantCards.Add(CreatePlantCard("unknown_plant"));
+        CreatePlantCard("unknown_plant");
 
         RefreshPlantsCost();
     }

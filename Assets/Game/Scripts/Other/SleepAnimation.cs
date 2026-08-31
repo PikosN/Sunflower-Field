@@ -9,10 +9,29 @@ public class SleepAnimation : MonoBehaviour
     public Transform sittingPosition;
     public Transform standingPosition;
 
-    private float sitDuration = 0.7f;
-    private float standDuration = 0.8f;
-
     private bool isAnimating = false;
+
+    public IEnumerator GoToSleep()
+    {
+        if (isAnimating)
+        {
+            yield break;
+        }
+        isAnimating = true;
+
+        G.UIManager.SetUIEnabled(false);
+        G.player.SetMovementEnabled(false);
+
+        standingPosition.position = playerTransform.position;
+        standingPosition.rotation = playerTransform.rotation;
+
+        yield return MoveCamera(standingPosition, sittingPosition, 0.5f);
+        yield return new WaitForSeconds(0.1f);
+        yield return MoveCamera(sittingPosition, lyingPosition, 0.5f);
+        yield return new WaitForSeconds(1f);
+
+        isAnimating = false;
+    }
     public IEnumerator Wakeup()
     {
         if (isAnimating)
@@ -29,34 +48,14 @@ public class SleepAnimation : MonoBehaviour
         standingPosition.rotation = Quaternion.Euler(0f, 0f, 0f);
 
         yield return new WaitForSeconds(1f);
-        yield return MoveCamera(lyingPosition, sittingPosition, 1.5f);
-        yield return new WaitForSeconds(1f);
-        yield return MoveCamera(sittingPosition, standingPosition, 1.5f);
+        yield return MoveCamera(lyingPosition, sittingPosition, 0.5f);
+        yield return new WaitForSeconds(0.1f);
+        yield return MoveCamera(sittingPosition, standingPosition, 0.5f);
 
         G.player.ResetCamera(1f);
 
         G.player.SetMovementEnabled(true);
-
-        isAnimating = false;
-    }
-    public IEnumerator GoToSleep()
-    {
-        if (isAnimating)
-        {
-            yield break;
-        }
-        isAnimating = true;
-
-        G.player.SetMovementEnabled(false);
-
-        standingPosition.position = playerTransform.position;
-        standingPosition.rotation = playerTransform.rotation;
-
-        yield return MoveCamera(standingPosition, sittingPosition, 1.5f);
-        yield return new WaitForSeconds(1f);
-        yield return MoveCamera(sittingPosition, lyingPosition, 1.5f);
-        yield return new WaitForSeconds(1f);
-
+        G.UIManager.SetUIEnabled(true);
         isAnimating = false;
     }
 

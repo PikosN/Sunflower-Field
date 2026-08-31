@@ -2,42 +2,43 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class ShopManager : MonoBehaviour
+public class ShopUI : MonoBehaviour
 {
     public GameObject shopPanel;
     public UpgradeCard upgradeCardPrefab;
     public Transform content;
     public TMP_Text FPMoneyText;
 
+    public InputActionReference cancelAction;
+
     public List<UpgradeCard> activeUpgradeCards;
 
-    void Start()
+    private void OnEnable()
     {
-        shopPanel.SetActive(false);
+        cancelAction.action.Enable();
+    }
+    private void OnDisable()
+    {
+        cancelAction.action.Disable();
     }
 
-    public void CreateUpgrade(string id)
+    void Update()
+    {
+        if (shopPanel.activeSelf && cancelAction.action.WasPressedThisFrame())
+        {
+            CloseShop();
+        }
+    }
+
+    public void CreateUpgradeCard(string id)
     {
         UpgradeData upgrade = AllUpgrades.GetUpgrade(id);
         UpgradeCard card = Instantiate(upgradeCardPrefab, content);
         card.Setup(upgrade);
-        activeUpgradeCards.Add(card);
-    }
 
-    public bool BuyUpgrade(UpgradeData upgrade)
-    {
-        int cost = GameMath.GetUpgradeCost(
-            upgrade.baseCost,
-            upgrade.costGrowthRate,
-            G.upgradeManager.GetUpgradeLevel(upgrade.id)
-            );
-        if (!G.economyManager.TrySpentMoney(cost))
-        {
-            return false;
-        }
-        G.upgradeManager.ApplyUpgrade(upgrade);
-        return true;
+        activeUpgradeCards.Add(card);
     }
 
     public void OpenShop()
@@ -67,8 +68,8 @@ public class ShopManager : MonoBehaviour
             activeUpgradeCards[0].Delete();
         }
 
-        CreateUpgrade("growth");
-        CreateUpgrade("money");
-        CreateUpgrade("autoharvest");
+        CreateUpgradeCard("growth");
+        CreateUpgradeCard("money");
+        CreateUpgradeCard("autoharvest");
     }
 }

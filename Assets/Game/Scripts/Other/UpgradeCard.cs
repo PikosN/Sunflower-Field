@@ -18,13 +18,18 @@ public class UpgradeCard : MonoBehaviour
         
         Refresh();
 
-        buyButton.onClick.AddListener(Buy);
+        buyButton.onClick.AddListener(BuyAndApply);
     }
-    void Buy()
+    void BuyAndApply()
     {
-
-        if (G.shopManager.BuyUpgrade(upgrade))
+        int cost = GameMath.GetUpgradeCost(
+            upgrade.baseCost,
+            upgrade.costGrowthRate,
+            G.upgradeManager.GetUpgradeLevel(upgrade.id)
+            );
+        if (G.economyManager.TrySpentMoney(cost))
         {
+            G.upgradeManager.ApplyUpgrade(upgrade);
             if (G.upgradeManager.GetUpgradeLevel(upgrade.id) < upgrade.amountOfUpgrades)
             {
                 Refresh();
@@ -50,7 +55,7 @@ public class UpgradeCard : MonoBehaviour
 
     public void Delete()
     {
-        G.shopManager.activeUpgradeCards.Remove(this);
+        G.shopUI.activeUpgradeCards.Remove(this);
         Destroy(gameObject);
     }
 
