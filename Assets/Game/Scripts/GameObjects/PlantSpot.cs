@@ -67,6 +67,8 @@ public class PlantSpot : MonoBehaviour, IInteractable
     {
         if (state != State.Growing) return;
 
+        if (!G.lightManager.isLightOn) return;
+
         growTimer += Time.deltaTime;
         float growthTime = GameMath.GetGrowthTime(
                 plantData.baseGrowthTime,

@@ -19,6 +19,8 @@ public class ProgressManager : MonoBehaviour
     {
         StartCoroutine(sleepAnimation.Wakeup());
 
+        G.lightManager.TurnOffLights();
+
         G.shopUI.Reset();
 
         G.plantSelectionUI.Reset();

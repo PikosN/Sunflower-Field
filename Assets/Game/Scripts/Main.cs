@@ -11,6 +11,7 @@ public class Main : MonoBehaviour
     public PlantSelectionUI plantSelectionUI;
     public Player player;
     public UIManager UImanager;
+    public LightManager lightManager;
     void Awake()
     {
         G.economyManager = economyManager;
@@ -22,6 +23,7 @@ public class Main : MonoBehaviour
         G.plantSelectionUI = plantSelectionUI;
         G.player = player;
         G.UIManager = UImanager;
+        G.lightManager = lightManager;
 
         StartGame();
     }
