@@ -13,6 +13,9 @@ public class PlantSpot : MonoBehaviour, IInteractable
     private float growTimer;
     private PlantData plantData;
 
+    public GameObject growthBar;
+    public GameObject fillBar;
+
     public void Interact()
     {
         if (state == State.Empty) G.plantSelectionUI.OpenUI(this);
@@ -45,6 +48,8 @@ public class PlantSpot : MonoBehaviour, IInteractable
 
         G.plantManager.BuyPlant();
         G.plantManager.plantSpots.Add(this);
+
+        growthBar.SetActive(G.lightManager.isLightOn);
     }
 
     void Harvest()
@@ -77,6 +82,8 @@ public class PlantSpot : MonoBehaviour, IInteractable
             );
         float progress = Mathf.Clamp01(growTimer / growthTime);
 
+        fillBar.transform.localScale = new Vector3(progress, 1f, 1f);
+
         plantVisual.transform.localScale = Vector3.one * progress * 2.5f;
         plantVisual.transform.localPosition = new Vector3(0f, 0.35f, 0f);
 
@@ -99,5 +106,8 @@ public class PlantSpot : MonoBehaviour, IInteractable
 
         plantVisual.SetActive(false);
         plantVisual.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+
+        fillBar.transform.localScale = Vector3.zero;
+        growthBar.SetActive(false);
     }
 }

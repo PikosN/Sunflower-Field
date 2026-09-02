@@ -20,3 +20,4 @@ public class UIManager : MonoBehaviour
         canvas.SetActive(enabled);
     }
 }
+

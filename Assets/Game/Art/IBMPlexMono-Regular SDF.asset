@@ -13866,6 +13866,30 @@ MonoBehaviour:
       m_MarkPositionAdjustment:
         m_XPositionAdjustment: 0
         m_YPositionAdjustment: 62.820004
+    - m_BaseGlyphID: 14
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 29.070002
+        m_YCoordinate: 0
+      m_MarkGlyphID: 979
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: 0
+        m_YPositionAdjustment: 0
+    - m_BaseGlyphID: 14
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 29.070002
+        m_YCoordinate: 0
+      m_MarkGlyphID: 980
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: 0
+        m_YPositionAdjustment: 0
+    - m_BaseGlyphID: 14
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 29.070002
+        m_YCoordinate: 0
+      m_MarkGlyphID: 981
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: 0
+        m_YPositionAdjustment: 0
     m_MarkToMarkAdjustmentRecords: []
   m_ShouldReimportFontFeatures: 0
   m_FallbackFontAssetTable: []

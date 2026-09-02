@@ -10,16 +10,9 @@ public class ProgressManager : MonoBehaviour
     int dayGoal;
     public bool isDayCompleted;
 
-    void Start()
-    {
-        StartDay();
-    }
-
     public void StartDay()
     {
         StartCoroutine(sleepAnimation.Wakeup());
-
-        G.lightManager.TurnOffLights();
 
         G.shopUI.Reset();
 

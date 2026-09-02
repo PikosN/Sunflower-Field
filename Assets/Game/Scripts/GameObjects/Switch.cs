@@ -6,7 +6,11 @@ public class Switch : MonoBehaviour, IInteractable
     {
         if (!G.lightManager.isLightOn)
         {
-            G.lightManager.TurnOnLights();
+            StartCoroutine(G.lightManager.TurnOnLights());
+        }
+        else
+        {
+            G.lightManager.TurnOffLights();
         }
     }
 
