@@ -25,6 +25,7 @@ public class Main : MonoBehaviour
         G.UIManager = UImanager;
         G.lightManager = lightManager;
 
+
         StartGame();
     }
 

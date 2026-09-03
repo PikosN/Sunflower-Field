@@ -10,6 +10,7 @@ public class UpgradeData
 
     public float costGrowthRate;
     public float effectRate;
+    public bool showStats = false;
 }
 
 public class AllUpgrades
@@ -21,11 +22,12 @@ public class AllUpgrades
         {
             id = "growth",
             name = "[00] BETTER LAMPS",
-            description = "Plants grow faster",
+            description = "Plants grow 10% faster",
             baseCost = 20,
             amountOfUpgrades = 10,
             costGrowthRate = 1.7f,
             effectRate = 0.9f,
+            showStats = true,
             
 },
         // Money upgrade
@@ -37,7 +39,8 @@ public class AllUpgrades
             baseCost = 25,
             amountOfUpgrades = 10,
             costGrowthRate = 1.8f,
-            effectRate = 1.2f
+            effectRate = 1.2f,
+            showStats = true,
         },
         // Autoharvest upgrade
         new UpgradeData()

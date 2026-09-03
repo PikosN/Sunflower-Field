@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public float gravityValue = -9.81f;
 
     public Transform cameraTransform;
-    public float mouseSensivity = 1f;
+    public float mouseSensitivity = 0.1f;
     private float xRotation = 0f;
     private float yRotation = 180f;
 
@@ -58,10 +58,10 @@ public class Player : MonoBehaviour
     // движение камерой
         Vector2 mouseDelta = lookAction.action.ReadValue<Vector2>();
 
-        yRotation += mouseDelta.x * mouseSensivity;
+        yRotation += mouseDelta.x * mouseSensitivity;
         transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
 
-        xRotation -= mouseDelta.y * mouseSensivity;
+        xRotation -= mouseDelta.y * mouseSensitivity;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     // движение игрока

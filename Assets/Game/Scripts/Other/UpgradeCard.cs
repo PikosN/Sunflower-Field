@@ -7,6 +7,7 @@ public class UpgradeCard : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text descriptionText;
     public TMP_Text costText;
+    public TMP_Text statsText;
     public Button buyButton;
 
     private UpgradeData upgrade;
@@ -49,7 +50,22 @@ public class UpgradeCard : MonoBehaviour
             );
         int level = G.upgradeManager.GetUpgradeLevel(upgrade.id);
 
-        nameText.text = upgrade.name + " " + level;
+        if (upgrade.amountOfUpgrades == 1)
+        {
+            nameText.text = upgrade.name;
+        }
+        else
+        {
+            nameText.text = upgrade.name + " " + level;
+        }
+
+        // 100% -> 110%
+        if (upgrade.showStats == true)
+        {
+            statsText.enabled = true;
+            statsText.text = $"{Mathf.Pow(upgrade.effectRate, level) * 100:0.}% -> {Mathf.Pow(upgrade.effectRate, level + 1) * 100:0.}%";
+        }
+
         costText.text = cost + "$";
     }
 
@@ -63,6 +79,14 @@ public class UpgradeCard : MonoBehaviour
     {
         buyButton.interactable = false;
         costText.text = "";
-        buyButton.GetComponentInChildren<TMP_Text>().text = "PURCHASED";
+        statsText.text = $"{Mathf.Pow(upgrade.effectRate, G.upgradeManager.GetUpgradeLevel(upgrade.id) * 100):0.}%";
+        if (upgrade.showStats == true)
+        {
+            buyButton.GetComponentInChildren<TMP_Text>().text = "MAXED";
+        }
+        else
+        {
+            buyButton.GetComponentInChildren<TMP_Text>().text = "PURCHASED";
+        }
     }
 }

@@ -5,13 +5,13 @@ public static class GameMath
 {
     public static int GetPlantCost(int baseCost, float plantRate, int currentPlants)
     {
-        int sunflowerCost = Mathf.RoundToInt(baseCost * Mathf.Pow(plantRate, currentPlants));
-        return sunflowerCost;
+        int plantCost = Mathf.RoundToInt(baseCost * Mathf.Pow(plantRate, currentPlants));
+        return plantCost;
     }
     public static float GetGrowthTime(float baseTime, float growthRate, int level)
     {
-        float sunflowerGrowthTime = baseTime * Mathf.Pow(growthRate, level);
-        return sunflowerGrowthTime;
+        float plantGrowthTime = baseTime * Mathf.Pow(growthRate, level);
+        return plantGrowthTime;
     }
     public static int GetMoneyPerPlant(int baseMoney, float moneyRate, int level)
     {

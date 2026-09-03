@@ -1078,7 +1078,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 780}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &296314753
 MonoBehaviour:
@@ -1219,7 +1219,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 792356167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.10897434}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3913,8 +3913,8 @@ Transform:
   m_GameObject: {fileID: 1284645312}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 4.141, z: 6.5}
-  m_LocalScale: {x: 2, y: 2, z: 0.2}
+  m_LocalPosition: {x: 5.521, y: 4.094, z: 6.5}
+  m_LocalScale: {x: 1.4993211, y: 2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1218491733}
@@ -4079,8 +4079,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 446256952}
   m_HandleRect: {fileID: 446256951}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.89102566
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6260,7 +6260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c82563b003ef58045bcfe7fe2a39eab3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.635
+      value: 1.593
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c82563b003ef58045bcfe7fe2a39eab3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6370,7 +6370,7 @@ MonoBehaviour:
   jumpHeight: 1
   gravityValue: -9.81
   cameraTransform: {fileID: 192790596}
-  mouseSensivity: 0.1
+  mouseSensitivity: 0.1
   interactRange: 1.8
   interactionLayer:
     serializedVersion: 2
