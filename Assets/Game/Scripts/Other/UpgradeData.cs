@@ -52,6 +52,28 @@ public class AllUpgrades
             amountOfUpgrades = 1,
             costGrowthRate = 1f
         },
+        new UpgradeData()
+        {
+            id = "bonus_chance",
+            name = "[03] BONUS CHANCE",
+            description = "The chance of extra money increases",
+            baseCost = 40,
+            amountOfUpgrades = 20,
+            costGrowthRate = 2f,
+            effectRate = 0.05f,
+            showStats = true,
+        },
+        new UpgradeData()
+        {
+            id = "bonus_money",
+            name = "[04] BETTER FERTILIZERS",
+            description = "The value of extra money increases",
+            baseCost = 100,
+            amountOfUpgrades = 5,
+            costGrowthRate = 2.3f,
+            effectRate = 1f,
+            showStats = true,
+        },
         //new UpgradeData()
         //{
             //id = "",

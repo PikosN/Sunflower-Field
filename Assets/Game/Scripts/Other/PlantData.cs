@@ -10,6 +10,9 @@ public class PlantData
     public float baseGrowthTime;
 
     public float costGrowthRate;
+
+    public float bonusChance;
+    public int bonusMoney;
 }
 
 public static class AllPlants
@@ -25,6 +28,8 @@ public static class AllPlants
             baseReward = 10,
             baseGrowthTime = 10f,
             costGrowthRate = 1.2f,
+            bonusChance = 0f,
+            bonusMoney = 1,
         },
         new PlantData()
         {

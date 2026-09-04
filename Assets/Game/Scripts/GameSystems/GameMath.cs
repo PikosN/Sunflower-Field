@@ -26,4 +26,12 @@ public static class GameMath
     {
         return Mathf.RoundToInt(baseDayGoal * Mathf.Pow(2f, day - 1));
     }
+    public static float GetBonusChance(float baseChance, float bonusChancePerLevel, int level)
+    {
+        return (baseChance + bonusChancePerLevel * level);
+    }
+    public static int GetBonusMoney(float baseBonus, float bonusPerLevel, int level)
+    {
+        return Mathf.RoundToInt(baseBonus + bonusPerLevel * level);
+    }
 }

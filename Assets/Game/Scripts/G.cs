@@ -10,4 +10,5 @@ public class G
     public static Player player;
     public static UIManager UIManager;
     public static LightManager lightManager;
+    public static AudioManager audioManager;
 }

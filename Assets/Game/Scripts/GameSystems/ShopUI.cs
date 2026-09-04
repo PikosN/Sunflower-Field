@@ -70,5 +70,7 @@ public class ShopUI : MonoBehaviour
         CreateUpgradeCard("growth");
         CreateUpgradeCard("money");
         CreateUpgradeCard("autoharvest");
+        CreateUpgradeCard("bonus_chance");
+        CreateUpgradeCard("bonus_money");
     }
 }

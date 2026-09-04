@@ -2937,6 +2937,7 @@ GameObject:
   - component: {fileID: 1101960988}
   - component: {fileID: 1101960989}
   - component: {fileID: 1101960990}
+  - component: {fileID: 1101960991}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -3007,6 +3008,8 @@ MonoBehaviour:
   growthLevel: 0
   moneyLevel: 0
   hasAutoharvest: 0
+  bonusChanceLevel: 0
+  bonusMoneyLevel: 0
 --- !u!114 &1101960985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3083,6 +3086,18 @@ MonoBehaviour:
   emergencyLight: {fileID: 292957382}
   Lamps: []
   isLightOn: 1
+--- !u!114 &1101960991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101960980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfb0bfe371a807478d9010e36ba4e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
 --- !u!1 &1110409050
 GameObject:
   m_ObjectHideFlags: 0
@@ -5068,6 +5083,7 @@ MonoBehaviour:
   player: {fileID: 1999961650}
   UImanager: {fileID: 1729825910}
   lightManager: {fileID: 1101960990}
+  audioManager: {fileID: 1101960991}
 --- !u!4 &1666587331
 Transform:
   m_ObjectHideFlags: 0

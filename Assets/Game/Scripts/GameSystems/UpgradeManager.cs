@@ -5,6 +5,9 @@ public class UpgradeManager : MonoBehaviour
     public int growthLevel = 0;
     public int moneyLevel = 0;
     public int hasAutoharvest = 0;
+    public int bonusChanceLevel = 0;
+    public int bonusMoneyLevel = 0;
+
     public void ApplyUpgrade(UpgradeData upgrade)
     {
         switch (upgrade.id)
@@ -17,6 +20,12 @@ public class UpgradeManager : MonoBehaviour
                 break;
             case "autoharvest":
                 UpgradeAutoharvest();
+                break;
+            case "bonus_chance":
+                UpgradeBonusChance();
+                break;
+            case "bonus_money":
+                UpgradeBonusMoney();
                 break;
         }
     }
@@ -31,6 +40,10 @@ public class UpgradeManager : MonoBehaviour
                 return moneyLevel;
             case "autoharvest":
                 return hasAutoharvest;
+            case "bonus_chance":
+                return bonusChanceLevel;
+            case "bonus_money":
+                return bonusMoneyLevel;
             default: 
                 return 0;
         }
@@ -51,10 +64,22 @@ public class UpgradeManager : MonoBehaviour
         hasAutoharvest = 1;
     }
 
+    void UpgradeBonusChance()
+    {
+        bonusChanceLevel++;
+    }
+
+    void UpgradeBonusMoney()
+    {
+        bonusMoneyLevel++;
+    }
+
     public void Reset()
     {
         growthLevel = 0;
         moneyLevel = 0;
         hasAutoharvest= 0;
+        bonusChanceLevel = 0;
+        bonusMoneyLevel = 0;
     }
 }

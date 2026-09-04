@@ -12,6 +12,9 @@ public class Main : MonoBehaviour
     public Player player;
     public UIManager UImanager;
     public LightManager lightManager;
+    public AudioManager audioManager;
+
+
     void Awake()
     {
         G.economyManager = economyManager;
@@ -24,7 +27,7 @@ public class Main : MonoBehaviour
         G.player = player;
         G.UIManager = UImanager;
         G.lightManager = lightManager;
-
+        G.audioManager = audioManager;
 
         StartGame();
     }

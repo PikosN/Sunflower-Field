@@ -18,14 +18,34 @@ public class PlantSpot : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (state == State.Empty) G.plantSelectionUI.OpenUI(this);
+        //if (state == State.Empty) G.plantSelectionUI.OpenUI(this);
+        if (state == State.Empty)
+        {
+            PlantData plant = AllPlants.GetPlantData("unknown_plant");
+            int plantCost = GameMath.GetPlantCost(
+                plant.baseCost,
+                plant.costGrowthRate,
+                G.plantManager.currentPlants
+            );
+            if (G.economyManager.TrySpentMoney(plantCost))
+            {
+                Plant(plant);
+            }
+            ;
+        }
         if (state == State.Ready) Harvest();
     }
     public string GetInteractText()
     {
         if (state == State.Empty)
         {
-            return "Press E to plant";
+            PlantData plant = AllPlants.GetPlantData("unknown_plant");
+            int plantCost = GameMath.GetPlantCost(
+                plant.baseCost,
+                plant.costGrowthRate,
+                G.plantManager.currentPlants
+            );
+            return $"Press E to plant for {plantCost}$";
         }
         if (state == State.Growing)
         {
@@ -62,7 +82,21 @@ public class PlantSpot : MonoBehaviour, IInteractable
                 AllUpgrades.GetUpgrade("money").effectRate,
                 G.upgradeManager.GetUpgradeLevel("money")
             );
-        G.economyManager.AddMoney(moneyPerPlant);
+        float bonusChance = GameMath.GetBonusChance(
+                plantData.bonusChance,
+                AllUpgrades.GetUpgrade("bonus_chance").effectRate,
+                G.upgradeManager.GetUpgradeLevel("bonus_chance")
+            );
+        int bonusMoney = 0;
+        if ( Random.value < bonusChance)
+        {
+            bonusMoney = GameMath.GetBonusMoney(
+                plantData.bonusMoney,
+                AllUpgrades.GetUpgrade("bonus_money").effectRate,
+                G.upgradeManager.GetUpgradeLevel("bonus_money")
+            );
+        }
+        G.economyManager.AddMoney(moneyPerPlant + bonusMoney);
 
         plantVisual.SetActive(true);
         state = State.Growing;
